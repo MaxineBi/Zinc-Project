@@ -1,0 +1,5 @@
+grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'X-RAY DIFFRACTION' /databases/mol/pdb/cg/* > crystalzincoutput.txt
+grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'NMR' /databases/mol/pdb/cg/* > NMRzincoutput.txt
+
+
+
