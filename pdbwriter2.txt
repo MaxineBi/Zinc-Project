@@ -1,5 +1,41 @@
-grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'X-RAY DIFFRACTION' /databases/mol/pdb/cg/* > crystalzincoutput.txt
-grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'NMR' /databases/mol/pdb/cg/* > NMRzincoutput.txt
+def search_input(PDB_file):
+    """ Search the PDB-formatted input file for ZN and the Method """
+    try:
+    grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'X-RAY DIFFRACTION' /databases/mol/pdb/cg/* > crystalzincoutput.txt
+    grep -l 'ZN' /databases/mol/pdb/cg/* && grep -l 'NMR' /databases/mol/pdb/cg/* > NMRzincoutput.txt
+    
+def extract_input(PDB_file):
+    """ Extract matched PDB-formatted input file and create two sets of input """
+     return None
+
+def find_molecular_mass(input_file):
+    """ Read the PDB-formatted input sets, return lists of structure molecular mass """
+    return None
+    
+def plot_molecular_mass(list):
+    """ Plot a histogram of the number of structures(y-axis) with the list of molecular mass(x-axis) """
+    return None
+
+def set_x-axis(histogram):
+    """ Set x-axis (molecular mass) in an equivalent range to group distribution """
+    return None
+    
+def print_plot(histogram, label):
+    """ Print out all the histrogram with proper labels """
+    return None
+
+def usage():
+    print("usage: stubs.py [-h] -i pdb_input")
+
+
+except OSError as e:
+      # Catch any errors.  We could have either FileNotFound errors
+      # or perhaps some kind of IOError
+      if e.filename != None:
+        print(e.strerror+": '"+e.filename+"'")
+      else:
+        print(e.strerror)
+      sys.exit(1)
 
 
 
