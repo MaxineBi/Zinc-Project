@@ -1,6 +1,3 @@
-for open(file) in /databases/mol/pdb/cg:
-    if ' ZN ' in f.read():
-      print file
 
 import os,glob
 folder_path = '/databases/mol/pdb/ms'
@@ -27,3 +24,28 @@ list2 = []
 
 for file in glob.glob("*.ent"):
  print file
+
+import glob, os
+os.chdir("/databases/mol/pdb/cg")
+import re
+
+list1 = []
+list2 = []
+def stringfinder(filename, string):
+ with open(filename, 'r') as f:
+  for line in f:
+   if string in line:
+    return True
+ return False
+
+for file in glob.glob("*.ent"):
+ if stringfinder(file, 'ZN'):
+  list1.append(file)
+
+ # for line in f:
+  # if ZN in f:
+   # list1.append(line)
+ #if 'ZN' and  'X-RAY' in file:
+ # list2.append(file)
+
+print(list1, list2)
