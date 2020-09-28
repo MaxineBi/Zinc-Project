@@ -2,9 +2,13 @@ for open(file) in /databases/mol/pdb/cg:
     if ' ZN ' in f.read():
       print file
 
-import glob, os
-os.chdir("/databases/mol/pdb/ms")
-for file in glob.glob("*.ent"):
+import os,glob
+folder_path = '/databases/mol/pdb/ms'
+for filename in glob.glob(os.path.join(folder_path, '*.ent')):
+        with open(filename, 'r') as f:
+                text = f.read()
+                print (filename)
+   
 
 list1 = []
 list2 = []
