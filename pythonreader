@@ -17,3 +17,13 @@ list2 = []
                         list1.append(file)
                 if(f.readlines().strip() == 'ZN'& 'NMR'):
                         list2.append(file)
+
+import glob, os
+os.chdir("/databases/mol/pdb/cg")
+import re
+
+list1 = []
+list2 = []
+
+for file in glob.glob("*.ent"):
+ print file
