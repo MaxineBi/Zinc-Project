@@ -1,3 +1,15 @@
 for open(file) in /databases/mol/pdb/cg:
     if ' ZN ' in f.read():
       print file
+
+import glob, os
+os.chdir("/databases/mol/pdb/ms")
+for file in glob.glob("*.ent"):
+
+list1 = []
+list2 = []
+        with open(file, 'r') as f:
+                if(f.readlines().strip() == 'ZN'& 'X-RAY DIFFRACTION'):
+                        list1.append(file)
+                if(f.readlines().strip() == 'ZN'& 'NMR'):
+                        list2.append(file)
