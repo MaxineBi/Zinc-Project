@@ -1,0 +1,3 @@
+for open(file) in /databases/mol/pdb/cg:
+    if ' ZN ' in f.read():
+      print file
