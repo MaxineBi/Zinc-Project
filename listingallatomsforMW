@@ -1,15 +1,16 @@
-echo -e "PDB ID\tN\tC\tO\tS"
+echo -e "PDB ID\tMW"
 
 # Loop over all of the pdb files
 
-for i in $(find /databases/mol/pdb/cg/* -type f -exec grep -l -m1 " ZN " {} \;);
+for i in $(find /databases/mol/pdb/cg/ -name "*.ent" -exec grep -l -m1 " ZN " {} \;); 
 
-do
+do 
   PDB=`basename $i .ent`
   # Count the number of protein atoms, which are indicated by ATOM
   N=`grep -E "^ATOM.*N  " $i | wc -l`
   C=`grep -E "^ATOM.*C  " $i | wc -l`
   O=`grep -E "^ATOM.*O  " $i | wc -l`
   S=`grep -E "^ATOM.*S  " $i | wc -l`
-  echo -e ${PDB}  ${N} '\t' ${C} '\t' ${O} '\t' ${S}
+  let MW="(N*14)+(C*12)+(O*16)+(S*32)"
+  echo -e ${PDB}'\t'${MW}
 done
