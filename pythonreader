@@ -50,3 +50,37 @@ for filename in glob.glob(os.path.join(folder_path, '*.ent')):
    ppb = PPBuilder()
    for pp in ppb.build_peptides(read_input2(filename)):
     print(pp.get_sequence())
+
+
+
+import sys
+from getopt import getopt
+from Bio.SeqUtils.ProtParam import ProteinAnalysis
+from Bio.PDB import *
+import os,glob
+folder_path = '/databases/mol/pdb/cg'
+
+
+def read_input2(pdb):
+ parser = PDBParser(PERMISSIVE=1, QUIET=True)
+ try:
+  structure = parser.get_structure("input", pdb)
+  return structure
+ except OSError as e:
+  print('Could not locate PDB file')
+
+
+for filename in glob.glob(os.path.join(folder_path, '*.ent')):
+ with open(filename, 'r') as f:
+  if 'ZN' and 'NMR' in f.read():
+   ppb = PPBuilder()
+   for pp in ppb.build_peptides(read_input2(filename)):
+    seq = pp.get_sequence()
+    seqstring = str(seq)
+    analysed_seq = ProteinAnalysis(seqstring)
+    MW = analysed_seq.molecular_weight()
+    print(filename)
+    print(MW)
+    
+    
+    
