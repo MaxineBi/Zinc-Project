@@ -27,7 +27,6 @@ def sequence(filename):
   seqstring = str(seq)
   return(seqstring)
 
-
 for filename in glob.glob(os.path.join(folder_path, '*.ent')):
   with open(filename, 'r') as f:
    FileContents = f.read()
