@@ -22,11 +22,13 @@ def structure(pdb):
 def sequence(filename):
  ppb = PPBuilder()
  print('>',filename[25:29])
+ #the > makes the sequences return in FASTA format. It is not necessary.
  for pp in ppb.build_peptides(structure(filename)):
   seq = pp.get_sequence()
   seqstring = str(seq)
   print(seqstring)
 
+#iterate through all the files in a directory and print sequences for each
 for filename in glob.glob(os.path.join(folder_path, '*.ent')):
  with open(filename, 'r') as f:
   FileContents = f.read()
