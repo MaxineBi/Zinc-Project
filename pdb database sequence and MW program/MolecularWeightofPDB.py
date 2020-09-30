@@ -33,6 +33,7 @@ def molecular_weight(filename):
   MW_final += MW
  return(MW_final)
 
+#iterate through all the files in the directories/subdirectories and print molecular weight for each
 for filename in glob.glob(os.path.join(folder_path, '*.ent')):
  with open(filename, 'r') as f:
   FileContents = f.read()
