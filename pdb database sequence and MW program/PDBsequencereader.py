@@ -21,14 +21,14 @@ def structure(pdb):
 #return sequence of all chains and pdb identifier
 def sequence(filename):
  ppb = PPBuilder()
- return(‘>’,filename[25:29])
+ print('>',filename[25:29])
  for pp in ppb.build_peptides(structure(filename)):
   seq = pp.get_sequence()
   seqstring = str(seq)
-  return(seqstring)
+  print(seqstring)
 
 for filename in glob.glob(os.path.join(folder_path, '*.ent')):
-  with open(filename, 'r') as f:
-   FileContents = f.read()
-   if FileContents.find(metal) != -1 and FileContents.find(filetype) != -1:
-     print(sequence(filename))
+ with open(filename, 'r') as f:
+  FileContents = f.read()
+  if FileContents.find(metal) != -1 and FileContents.find(filetype) != -1:
+   sequence(filename)
