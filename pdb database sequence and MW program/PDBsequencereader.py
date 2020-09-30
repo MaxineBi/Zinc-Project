@@ -31,4 +31,4 @@ for filename in glob.glob(os.path.join(folder_path, '*.ent')):
   with open(filename, 'r') as f:
    FileContents = f.read()
    if FileContents.find(metal) != -1 and FileContents.find(filetype) != -1:
-     print(sequencefilename))
+     print(sequence(filename))
